@@ -1,11 +1,13 @@
-<div class="container my-3">
-  <h2><%= @list.name %></h2>
-  <h5><%= @list.movies.count %> <%= "movie".pluralize(@list.movies.count) %></h5>
-
-  <%= link_to new_list_bookmark_path(@list) do %>
-    <button class="btn btn-primary">Add a movie</button>
-  <% end %>
-
+<div class="list-banner" style="background-image: url('<%= cl_image_path @list.photo.key%>')">
+  <div class="container">
+    <h2><%= @list.name %></h2>
+    <h5><%= @list.movies.count %> <%= "movie".pluralize(@list.movies.count) %></h5>
+    <%= link_to new_list_bookmark_path(@list) do %>
+      <button class="btn btn-primary">Add a movie</button>
+    <% end %>
+  </div>
+</div>
+<div class="container">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="card-product my-3">
       <img src=<%= bookmark.movie.poster_url %> />
