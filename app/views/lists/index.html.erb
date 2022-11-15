@@ -12,7 +12,7 @@
   <% @lists.each do |list| %>
     <%= link_to list_path(list) do %>
       <div class="card-product m-3">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-product-infos">
           <h2><%= list.name %></h2>
         </div>
