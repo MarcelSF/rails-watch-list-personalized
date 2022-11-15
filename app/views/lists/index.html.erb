@@ -8,14 +8,11 @@
   </div>
 </div>
 
-<div class="list-grid">
+<div class="list-grid m-3">
   <% @lists.each do |list| %>
     <%= link_to list_path(list) do %>
-      <div class="card-product m-3">
-        <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-product-infos">
-          <h2><%= list.name %></h2>
-        </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),url('<%= cl_image_path list.photo.key %>')">
+        <%= list.name %>
       </div>
     <% end %>
   <% end %>
