@@ -1,4 +1,8 @@
-<div class="list-banner" style="background-image: url('<%= cl_image_path @list.photo.key%>')">
+<% if @list.photo.attached? %>
+  <div class="list-banner" style="background-image: url('<%= cl_image_path @list.photo.key%>')">
+<% else %>
+<div class="list-banner" style="background-image: url('<%= image_path 'wallpaper.jpeg'%>')">
+<% end %>
   <div class="container">
     <h2><%= @list.name %></h2>
     <h5><%= @list.movies.count %> <%= "movie".pluralize(@list.movies.count) %></h5>
